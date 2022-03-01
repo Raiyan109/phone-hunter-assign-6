@@ -1,3 +1,5 @@
+
+
 const searchBtn = () => {
     const searchBox = document.getElementById('search-box')
     const search = searchBox.value.toUpperCase()
@@ -18,7 +20,7 @@ const searchBtn = () => {
 const showPhoneDetails = (phones) => {
     console.log(phones)
     const main = document.getElementById('phone-container')
-    for (const phone of phones) {
+    phones.forEach(phone => {
         console.log(phone.brand)
         const div = document.createElement('div')
         div.innerHTML = `
@@ -32,7 +34,7 @@ const showPhoneDetails = (phones) => {
           </div>
         `
         main.appendChild(div)
-    }
+    })
 }
 
 // -------------------------------Explore button-------------------------
