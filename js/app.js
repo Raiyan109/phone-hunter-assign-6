@@ -57,9 +57,10 @@ const seeDetails = (info) => {
 const Details = (info) => {
     console.log(info)
 
-    const detailsContainer = document.getElementById('details-container')
-
-    detailsContainer.innerHTML = `
+    const detailsMain = document.getElementById('details-container')
+    detailsMain.textContent = ''
+    const detailsDiv = document.createElement('div')
+    detailsDiv.innerHTML = `
     <div class="container border border-dark border-3 rounded">
     
         <img src="${info.image}">
@@ -71,18 +72,20 @@ const Details = (info) => {
             <li>Memory : ${info.mainFeatures.memory}</li>
         </ul>
         <h5>Sensors : ${info.mainFeatures.sensors}</h5>
-        <h5>Release Date : ${info.releaseDate}</h5>
+        <h5>Release Date : ${info.releaseDate ? info.releaseDate : ''}</h5>
         <ul>Others : 
-            <li>Bluetooth : ${info.others.Bluetooth}</li>
-            <li>GPS : ${info.others.GPS}</li>
-            <li>NFC : ${info.others.NFC}</li>
-            <li>Radio : ${info.others.Radio}</li>
-            <li>USB : ${info.others.USB}</li>
-            <li>WLAN : ${info.others.WLAN}</li>
+            <li>Bluetooth : ${info.others.Bluetooth ? info.others.Bluetooth : ''}</li>
+            <li>GPS : ${info.others.GPS ? info.others.GPS : ''}</li>
+            <li>NFC : ${info.others.NFC ? info.others.NFC : ''}</li>
+            <li>Radio : ${info.others.Radio ? info.others.Radio : ''}</li>
+            <li>USB : ${info.others.USB ? info.others.USB : ''}</li>
+            <li>WLAN : ${info.others.WLAN ? info.others.WLAN : ''}</li>
         </ul>
     
     
     </div>
     `
+    detailsMain.appendChild(detailsDiv)
+    window.scrollTo(0, 300)
 
 }
