@@ -69,7 +69,7 @@ const Details = (info) => {
     
     <img src="${info.image}">
     <h2>Name : ${info.name}</h2>
-    <h4>Main Features : ${info.mainFeatures.storage}</h4>
+    <h4>Main Features : ${info.mainFeatures.storage}, Display Size : ${info.mainFeatures.displaySize} , Chipset : ${info.mainFeatures.chipSet}, Memory : ${info.mainFeatures.memory}</h4>
     </div>
     `
     console.log(info)
