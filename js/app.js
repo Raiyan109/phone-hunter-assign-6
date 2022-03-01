@@ -1,10 +1,19 @@
 const searchBtn = () => {
-    const searchBox = document.getElementById('search-box').value
-    const url = `https://openapi.programming-hero.com/api/phones?search=${searchBox}`
-    console.log(url)
-    fetch(url)
-        .then(res => res.json())
-        .then(data => showPhoneDetails(data.data.slice(0, 20)))
+    const searchBox = document.getElementById('search-box')
+    const search = searchBox.value.toUpperCase()
+    const error = document.getElementById('error')
+
+    if (search.length === 0) {
+        console.log('array is empty')
+    }
+    else {
+        const url = `https://openapi.programming-hero.com/api/phones?search=${search}`
+        console.log(url)
+        fetch(url)
+            .then(res => res.json())
+            .then(data => showPhoneDetails(data.data.slice(0, 20)))
+    }
+
 }
 const showPhoneDetails = (phones) => {
     console.log(phones)
@@ -13,41 +22,14 @@ const showPhoneDetails = (phones) => {
         console.log(phone.brand)
         const div = document.createElement('div')
         div.innerHTML = `
-        <div class="row row-cols-1 row-cols-md-3 g-4">
-            <div class="col">
-                <div class="card h-100">
-                    <img style="width: 10rem;" src="${phone.image}" class="card-img-top" alt="...">
-                    <div class="card-body">
-                        <h2 class="card-title"> Name : ${phone.phone_name}</h2>
-                        <p class="card-text">Brand : ${phone.brand}</p>
-                         <button onclick="seeDetails('${phone.slug}')" class="btn btn-success">Explore</button>
-                    </div>
-      
-                </div>
-            </div>
-            <div class="col">
-                <div class="card h-100">
-                    <img style="width: 10rem;" src="${phone.image}" class="card-img-top" alt="...">
-                    <div class="card-body">
-                         <h2 class="card-title"> Name : ${phone.phone_name}</h2>
-                         <p class="card-text">Brand : ${phone.brand}</p>
-                        <button onclick="seeDetails('${phone.slug}')" class="btn btn-success">Explore</button>
-                    </div>
-      
-                </div>
-            </div>
-            <div class="col">
-                <div class="card h-100">
-                    <img style="width: 10rem;" src="${phone.image}" class="card-img-top" alt="...">
-                    <div class="card-body">
-                        <h2 class="card-title"> Name : ${phone.phone_name}</h2>
-                        <p class="card-text">Brand : ${phone.brand}</p>
-                         <button onclick="seeDetails('${phone.slug}')" class="btn btn-success">Explore</button>
-                    </div>
-      
-                </div>
-            </div>
-        </div>
+          <div class="card h-100 mb-5">
+              <img style="width: 10rem;" src="${phone.image}" class="card-img-top" alt="...">
+              <div class="card-body">
+                  <h2 class="card-title"> Name : ${phone.phone_name}</h2>
+                  <p class="card-text">Brand : ${phone.brand}</p>
+                   <button onclick="seeDetails('${phone.slug}')" class="btn btn-success">Explore</button>
+              </div>
+          </div>
         `
         main.appendChild(div)
     }
@@ -64,13 +46,26 @@ const seeDetails = (info) => {
 }
 
 const Details = (info) => {
+    console.log(info)
     document.getElementById('details-container').innerHTML = `
-    <div>
+    <div class="container border border-dark border-3 rounded">
     
     <img src="${info.image}">
     <h2>Name : ${info.name}</h2>
-    <h4>Main Features : ${info.mainFeatures.storage}, Display Size : ${info.mainFeatures.displaySize} , Chipset : ${info.mainFeatures.chipSet}, Memory : ${info.mainFeatures.memory}</h4>
+    <ul>Main Features : 
+        <li>Storage : ${info.mainFeatures.storage}</li>
+        <li>Display Size : ${info.mainFeatures.displaySize}</li>
+        <li>Chipset : ${info.mainFeatures.chipSet}</li>
+        <li>Memory : ${info.mainFeatures.memory}</li>
+    </ul>
+    <ul>Sensor : 
+        <li>Storage : ${info.mainFeatures.storage}</li>
+        <li>Display Size : ${info.mainFeatures.displaySize}</li>
+        <li>Chipset : ${info.mainFeatures.chipSet}</li>
+        <li>Memory : ${info.mainFeatures.memory}</li>
+    </ul>
+    
     </div>
     `
-    console.log(info)
+
 }
