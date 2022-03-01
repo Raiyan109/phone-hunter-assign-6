@@ -1,10 +1,13 @@
-
+const toggleSpinner = displayStyle => {
+    document.getElementById('spinner').style.display = displayStyle
+}
 
 const searchBtn = () => {
     const searchBox = document.getElementById('search-box')
     const search = searchBox.value.toUpperCase()
     const error = document.getElementById('error')
-
+    // show spinner
+    toggleSpinner('block')
     if (search.length === 0) {
         console.log('array is empty')
     }
@@ -20,6 +23,7 @@ const searchBtn = () => {
 const showPhoneDetails = (phones) => {
     console.log(phones)
     const main = document.getElementById('phone-container')
+    main.textContent = ''
     phones.forEach(phone => {
         console.log(phone.brand)
         const div = document.createElement('div')
@@ -35,6 +39,7 @@ const showPhoneDetails = (phones) => {
         `
         main.appendChild(div)
     })
+    toggleSpinner('none')
 }
 
 // -------------------------------Explore button-------------------------
