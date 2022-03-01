@@ -22,6 +22,9 @@ const showPhoneDetails = (phones) => {
     main.textContent = ''
     if (phones.length === 0) {
         console.log('no result found')
+        const p = document.createElement('p')
+        p.innerText = 'No Phone Found'
+        main.appendChild(p)
     }
     phones?.forEach(phone => {
         console.log(phone.brand)
@@ -53,7 +56,10 @@ const seeDetails = (info) => {
 
 const Details = (info) => {
     console.log(info)
-    document.getElementById('details-container').innerHTML = `
+
+    const detailsContainer = document.getElementById('details-container')
+
+    detailsContainer.innerHTML = `
     <div class="container border border-dark border-3 rounded">
     
         <img src="${info.image}">
