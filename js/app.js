@@ -50,20 +50,25 @@ const Details = (info) => {
     document.getElementById('details-container').innerHTML = `
     <div class="container border border-dark border-3 rounded">
     
-    <img src="${info.image}">
-    <h2>Name : ${info.name}</h2>
-    <ul>Main Features : 
-        <li>Storage : ${info.mainFeatures.storage}</li>
-        <li>Display Size : ${info.mainFeatures.displaySize}</li>
-        <li>Chipset : ${info.mainFeatures.chipSet}</li>
-        <li>Memory : ${info.mainFeatures.memory}</li>
-    </ul>
-    <ul>Sensor : 
-        <li>Storage : ${info.mainFeatures.storage}</li>
-        <li>Display Size : ${info.mainFeatures.displaySize}</li>
-        <li>Chipset : ${info.mainFeatures.chipSet}</li>
-        <li>Memory : ${info.mainFeatures.memory}</li>
-    </ul>
+        <img src="${info.image}">
+        <h2>Name : ${info.name}</h2>
+        <ul>Main Features : 
+            <li>Storage : ${info.mainFeatures.storage}</li>
+            <li>Display Size : ${info.mainFeatures.displaySize}</li>
+            <li>Chipset : ${info.mainFeatures.chipSet}</li>
+            <li>Memory : ${info.mainFeatures.memory}</li>
+        </ul>
+        <h5>Sensors : ${info.mainFeatures.sensors}</h5>
+        <h5>Release Date : ${info.releaseDate}</h5>
+        <ul>Others : 
+            <li>Bluetooth : ${info.others.Bluetooth}</li>
+            <li>GPS : ${info.others.GPS}</li>
+            <li>NFC : ${info.others.NFC}</li>
+            <li>Radio : ${info.others.Radio}</li>
+            <li>USB : ${info.others.USB}</li>
+            <li>WLAN : ${info.others.WLAN}</li>
+        </ul>
+    
     
     </div>
     `
