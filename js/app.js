@@ -8,23 +8,22 @@ const searchBtn = () => {
     const error = document.getElementById('error')
     // show spinner
     toggleSpinner('block')
-    if (search.length === 0) {
-        console.log('array is empty')
-    }
-    else {
-        const url = `https://openapi.programming-hero.com/api/phones?search=${search}`
-        console.log(url)
-        fetch(url)
-            .then(res => res.json())
-            .then(data => showPhoneDetails(data.data.slice(0, 20)))
-    }
+    const url = `https://openapi.programming-hero.com/api/phones?search=${search}`
+    console.log(url)
+    fetch(url)
+        .then(res => res.json())
+        .then(data => showPhoneDetails(data.data.slice(0, 20)))
+
 
 }
 const showPhoneDetails = (phones) => {
     console.log(phones)
     const main = document.getElementById('phone-container')
     main.textContent = ''
-    phones.forEach(phone => {
+    if (phones.length === 0) {
+        console.log('no result found')
+    }
+    phones?.forEach(phone => {
         console.log(phone.brand)
         const div = document.createElement('div')
         div.innerHTML = `
