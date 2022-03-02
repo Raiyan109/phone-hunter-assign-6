@@ -1,7 +1,9 @@
+// Spinner Function
 const toggleSpinner = displayStyle => {
     document.getElementById('spinner').style.display = displayStyle
 }
 
+// Search button
 const searchBtn = () => {
     const searchBox = document.getElementById('search-box')
     const search = searchBox.value.toUpperCase()
@@ -77,14 +79,14 @@ const Details = (info) => {
             <li>Memory : ${info.mainFeatures.memory}</li>
         </ul>
         <h5>Sensors : ${info.mainFeatures.sensors}</h5>
-        <h5>Release Date : ${info.releaseDate ? info.releaseDate : ''}</h5>
+        <h5>Release Date : ${info?.releaseDate ? info.releaseDate : 'Nothing Found'}</h5>
         <ul>Others : 
-            <li>Bluetooth : ${info.others.Bluetooth ? info.others.Bluetooth : ''}</li>
-            <li>GPS : ${info.others.GPS ? info.others.GPS : ''}</li>
-            <li>NFC : ${info.others.NFC ? info.others.NFC : ''}</li>
-            <li>Radio : ${info.others.Radio ? info.others.Radio : ''}</li>
-            <li>USB : ${info.others.USB ? info.others.USB : ''}</li>
-            <li>WLAN : ${info.others.WLAN ? info.others.WLAN : ''}</li>
+            <li>Bluetooth : ${info?.others?.Bluetooth ? info.others.Bluetooth : 'Nothing Found'}</li>
+            <li>GPS : ${info?.others?.GPS ? info.others.GPS : 'Nothing Found'}</li>
+            <li>NFC : ${info?.others?.NFC ? info.others.NFC : 'Nothing Found'}</li>
+            <li>Radio : ${info?.others?.Radio ? info.others.Radio : 'Nothing Found'}</li>
+            <li>USB : ${info?.others?.USB ? info.others.USB : 'Nothing Found'}</li>
+            <li>WLAN : ${info?.others?.WLAN ? info.others.WLAN : 'Nothing Found'}</li>
         </ul>
     
     
