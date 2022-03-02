@@ -39,7 +39,7 @@ const showPhoneDetails = (phones) => {
         div.classList.add('col-md-4')
         div.innerHTML = `
           <div class="card h-100 mb-5">
-              <img style="width: 10rem;" src="${phone.image}" class="card-img-top" alt="...">
+              <img class="ms-3 mt-3" style="width: 10rem;" src="${phone.image}" class="card-img-top" alt="...">
               <div class="card-body">
                   <h2 class="card-title"> Name : ${phone.phone_name}</h2>
                   <p class="card-text">Brand : ${phone.brand}</p>
