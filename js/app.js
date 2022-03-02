@@ -36,6 +36,7 @@ const showPhoneDetails = (phones) => {
     phones?.forEach(phone => {
         console.log(phone.brand)
         const div = document.createElement('div')
+        div.classList.add('col-md-4')
         div.innerHTML = `
           <div class="card h-100 mb-5">
               <img style="width: 10rem;" src="${phone.image}" class="card-img-top" alt="...">
@@ -79,7 +80,7 @@ const Details = (info) => {
             <li>Memory : ${info.mainFeatures.memory}</li>
         </ul>
         <h5>Sensors : ${info.mainFeatures.sensors}</h5>
-        <h5>Release Date : ${info?.releaseDate ? info.releaseDate : 'Nothing Found'}</h5>
+        <h5>Release Date : ${info?.releaseDate ? info.releaseDate : 'No Release Date Found'}</h5>
         <ul>Others : 
             <li>Bluetooth : ${info?.others?.Bluetooth ? info.others.Bluetooth : 'Nothing Found'}</li>
             <li>GPS : ${info?.others?.GPS ? info.others.GPS : 'Nothing Found'}</li>
