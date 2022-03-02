@@ -5,7 +5,7 @@ const toggleSpinner = displayStyle => {
 const searchBtn = () => {
     const searchBox = document.getElementById('search-box')
     const search = searchBox.value.toUpperCase()
-    const error = document.getElementById('error')
+
     // show spinner
     toggleSpinner('block')
     const url = `https://openapi.programming-hero.com/api/phones?search=${search}`
@@ -23,6 +23,11 @@ const showPhoneDetails = (phones) => {
     if (phones.length === 0) {
         console.log('no result found')
         const p = document.createElement('p')
+        p.classList.add('text-center')
+        p.classList.add('fs-1')
+        p.classList.add('fw-bold')
+        p.classList.add('fst-italic')
+        p.classList.add('font-monospace')
         p.innerText = 'No Phone Found'
         main.appendChild(p)
     }
